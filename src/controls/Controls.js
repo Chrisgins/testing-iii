@@ -1,18 +1,28 @@
-import React from 'react';
+import React from "react";
 
-const Controls = props => {
+const controllers = props => {
   const { locked, closed, toggleLocked, toggleClosed } = props;
 
   return (
-    <div className="controls panel">
-      <button disabled={!closed} onClick={toggleLocked} className="toggle-btn">
-        {locked ? 'Unlock Gate' : 'Lock Gate'}
+    <div className="controllers panel" data-testid="controllers">
+      <button
+        data-testid="locks"
+        disabled={!closed}
+        onClick={toggleLocked}
+        className="toggle-btn"
+      >
+        {locked ? "Unlock Gate" : "Lock Gate"}
       </button>
-      <button disabled={locked} onClick={toggleClosed} className="toggle-btn">
-        {closed ? 'Open Gate' : 'Close Gate'}
+      <button
+        data-testid="openSezMe"
+        disabled={locked}
+        onClick={toggleClosed}
+        className="toggle-btn"
+      >
+        {closed ? "Open Gate" : "Close Gate"}
       </button>
     </div>
   );
 };
 
-export default Controls;
+export default controllers;
